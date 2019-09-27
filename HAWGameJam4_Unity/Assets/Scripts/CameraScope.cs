@@ -6,12 +6,14 @@ public class CameraScope : MonoBehaviour {
     [SerializeField] float boundingBoxPadding = 2f;
     [SerializeField] float minimumOrthographicSize = 8f;
     [SerializeField] float zoomSpeed = 20f;
-
+    [SerializeField] float upperBoundFactor = 3f;
+    
     private Camera _camera;
     
     private float _startingMinX;
     private float _startingMaxX;
     private float _startingMinY;
+    private float _startingMaxY;
     
     private float _flexMaxY;
 
@@ -42,6 +44,7 @@ public class CameraScope : MonoBehaviour {
             _startingMinX = Mathf.Min(_startingMinX, position.x);
             _startingMaxX = Mathf.Max(_startingMaxX, position.x);
             _startingMinY = Mathf.Min(_startingMinY, position.y);
+            _startingMaxY = Mathf.Max(_startingMaxY, position.y);
         }
     }
 

@@ -407,6 +407,7 @@ MonoBehaviour:
   boundingBoxPadding: 2
   minimumOrthographicSize: 8
   zoomSpeed: 20
+  upperBoundFactor: 3
 --- !u!1 &608204715
 GameObject:
   m_ObjectHideFlags: 0
