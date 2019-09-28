@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - UiParticles
+  - MovingHouseWall
+  - Gradient
+  - Moving
   layers:
   - Default
   - TransparentFX
@@ -15,7 +19,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - UIParticles
   - 
   - 
   - 
@@ -38,6 +42,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: UiParticles
+    uniqueID: 1271261513
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
