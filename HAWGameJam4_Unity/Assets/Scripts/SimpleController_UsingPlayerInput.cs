@@ -4,11 +4,15 @@ using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Interactions;
 
 public class SimpleController_UsingPlayerInput : MonoBehaviour {
+    //Movement vars
     public float moveSpeed;
     public bool usingForce = true;
-
     private Vector2 m_Move;
     private Rigidbody rb;
+
+    //Rotation vars
+    public float rotationSpeed;
+    private Vector3 rotation;
 
     private void Awake() {
         rb = GetComponent<Rigidbody>();
@@ -17,39 +21,47 @@ public class SimpleController_UsingPlayerInput : MonoBehaviour {
         }
     }
 
+    #region Movement
     public void OnMove(InputAction.CallbackContext context) {
         m_Move = context.ReadValue<Vector2>();
     }
-
-    public void Update() {
-        if (!usingForce) {
-            Move(m_Move);
-        }
+    
+    //Transform Movement
+    private void Move(Vector2 direction) {
+        if (direction.sqrMagnitude < 0.01)
+            return;
+        float scaledMoveSpeed = moveSpeed * Time.deltaTime;
+        Vector3 move = new Vector3(direction.x, direction.y, 0);
+        transform.position += move * scaledMoveSpeed;
     }
-
+    
+    //Force Movement
     private void FixedUpdate() {
         if (usingForce) {
             MoveForce(m_Move);
         }
     }
 
-    private void Move(Vector2 direction) {
-        if (direction.sqrMagnitude < 0.01)
-            return;
-        var scaledMoveSpeed = moveSpeed * Time.deltaTime;
-        var move = Quaternion.Euler(0, transform.eulerAngles.y, 0) * new Vector3(direction.x, direction.y, 0);
-        transform.position += move * scaledMoveSpeed;
-    }
-
     private void MoveForce(Vector2 direction) {
         rb.AddForce(new Vector3(m_Move.x, m_Move.y, 0) * moveSpeed);
     }
+    #endregion
+
+    #region Rotation
+    public void OnLook(InputAction.CallbackContext context) {
+        rotation = new Vector3(context.ReadValue<Vector2>().x, context.ReadValue<Vector2>().y, 0);
+    }
+    #endregion
+
+    public void Update() {
+        if (!usingForce) {
+            Move(m_Move);
+        }
+        rb.transform.Rotate(rotation * rotationSpeed, Space.World);
+    }
 
 
-
-
-
-
+    #region Legacy
     //public void OnLook(InputAction.CallbackContext context)
     //{
     //    m_Look = context.ReadValue<Vector2>();
@@ -121,4 +133,5 @@ public class SimpleController_UsingPlayerInput : MonoBehaviour {
     //    newProjectile.GetComponent<MeshRenderer>().material.color =
     //        new Color(Random.value, Random.value, Random.value, 1.0f);
     //}
+    #endregion
 }
