@@ -140,7 +140,7 @@ PrefabInstance:
     - target: {fileID: 8879533333746579047, guid: 74f2f54a9107af04780c9be9c077f15b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 18.4
       objectReference: {fileID: 0}
     - target: {fileID: 8879533333746579047, guid: 74f2f54a9107af04780c9be9c077f15b,
         type: 3}
@@ -186,6 +186,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8879533333746579047, guid: 74f2f54a9107af04780c9be9c077f15b,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74f2f54a9107af04780c9be9c077f15b, type: 3}
@@ -241,7 +246,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
+  orthographic: 1
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:

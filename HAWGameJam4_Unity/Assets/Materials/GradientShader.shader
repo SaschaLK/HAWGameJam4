@@ -25,13 +25,11 @@
         struct Input
         {
             float2 uv_MainTex;
-			float4 screenPos;
         };
 
         void surf (Input IN, inout SurfaceOutputStandard o)
         {
-			float2 screenUV = IN.screenPos.xy / IN.screenPos.w;
-            fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * lerp(_ColorBot, _ColorTop, screenUV.y);
+            fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * lerp(_ColorBot, _ColorTop, IN.uv_MainTex.y);
             o.Albedo = c.rgb;
             o.Alpha = c.a;
         }
