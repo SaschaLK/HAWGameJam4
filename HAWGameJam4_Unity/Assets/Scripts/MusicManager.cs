@@ -9,7 +9,7 @@ public class MusicManager : MonoBehaviour
     public AudioMixerSnapshot chiptuneMusic;
     public AudioMixerSnapshot shittyFluteMusic;
     public AudioMixerSnapshot soundfontMusic;
-    float transitionTime = 0.4;
+    float transitionTime = 0.4f;
 
     public void TransitionToAnime() {
         animeMusic.TransitionTo(transitionTime);
