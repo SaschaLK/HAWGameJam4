@@ -19,7 +19,7 @@ public class ObjectSpawner : MonoBehaviour
 
             if (_instantiationCounter >= 5)
             {
-                Instantiate(objectsToSpawn[Random.Range(0, objectsToSpawn.Length)], new Vector3(Random.Range(-6, 6), 0, 0),
+                Instantiate(objectsToSpawn[Random.Range(0, objectsToSpawn.Length)], new Vector3(Random.Range(-6, 6), transform.position.y, 0),
                     Quaternion.identity);
                 
                 _instantiationCounter = 0;

@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -3644,6 +3644,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1333016627}
+  - component: {fileID: 1333016628}
   m_Layer: 0
   m_Name: ObjectSpawner
   m_TagString: Untagged
@@ -3665,6 +3666,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1333016628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1333016626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0bab7b19bc144ee696986fd5d94bdb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectsToSpawn:
+  - {fileID: 6970363803118097265, guid: 239bf01c96f5e4d1aa72759c100b756d, type: 3}
+  - {fileID: 4048020872262388668, guid: 2d705898d2e9b45f5a353e44e821a306, type: 3}
+  - {fileID: 4198956619058711648, guid: 893ac16349aff42eda05f4e765d1838e, type: 3}
+  - {fileID: 8977379597897563871, guid: ef5daa5550dcc45b4899394926e98f53, type: 3}
 --- !u!1001 &1343775802
 PrefabInstance:
   m_ObjectHideFlags: 0
