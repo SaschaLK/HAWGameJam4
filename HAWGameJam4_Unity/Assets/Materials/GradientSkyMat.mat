@@ -8,7 +8,8 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: GradientSkyMat
-  m_Shader: {fileID: 4800000, guid: f1f536f3520ae3444b25dd68cccc94e5, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 409817760f9b204418b66324f6dee30b,
+    type: 3}
   m_ShaderKeywords: _ALPHABLEND_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -73,6 +74,8 @@ Material:
     - _UVSec: 0
     - _ZWrite: 0
     m_Colors:
+    - Color_40623C6F: {r: 0, g: 0.2738892, b: 0.4245283, a: 0}
+    - Color_A2C771E1: {r: 0.759434, g: 0.9728093, b: 1, a: 0}
     - _Color: {r: 0.11792451, g: 0.12970696, b: 1, a: 1}
     - _ColorBot: {r: 0.7216981, g: 0.97014326, b: 1, a: 1}
     - _ColorTop: {r: 0.2216981, g: 0.3987239, b: 1, a: 1}
