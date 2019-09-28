@@ -2,16 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HouseWallBehaviour : MonoBehaviour {
+public class HouseWallBehaviour : MonoBehaviour 
+{
     private float scrollingSpeed;
     private float ceiling;
     private float floor;
+    private bool stopped;
+    
     public int id;
     public int idLeader;
 
     [SerializeField] Material[] wallMaterials;
 
-    private void Start() {
+    private void Start()
+    {
         scrollingSpeed = ScrollingManagerBehaviour.instance.outerWallSpeed;
         ceiling = ScrollingManagerBehaviour.instance.ceiling;
         
@@ -23,10 +27,20 @@ public class HouseWallBehaviour : MonoBehaviour {
         }
     }
 
-    private void Update() {
+    private void Update()
+    {
+        if (stopped)
+            return;
+        
         if(gameObject.transform.position.y >= ceiling) {
             ScrollingManagerBehaviour.instance.ResetWallTile(id, idLeader);
         }
         gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + scrollingSpeed*Time.deltaTime, gameObject.transform.position.z);
+    }
+
+    public void StopMovement()
+    {
+        stopped = true;
+        Debug.Log("STOPPED");
     }
 }
