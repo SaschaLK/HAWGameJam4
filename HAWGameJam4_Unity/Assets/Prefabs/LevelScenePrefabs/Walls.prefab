@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ac32380efef8c4c898ef4890035ac309, type: 2}
+  - {fileID: 2100000, guid: bc5e4c6a387d8450592777e8f6a84520, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -94,6 +94,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   idLeader: 0
+  wallMaterials:
+  - {fileID: 2100000, guid: 52f0eb6db12a04b43aa48b08358bd093, type: 2}
+  - {fileID: 2100000, guid: 2d5ab89f6de694e3fbb7030fc4a672e8, type: 2}
+  - {fileID: 2100000, guid: d9b68bc86e17940628d50b91b9918ddf, type: 2}
+  - {fileID: 2100000, guid: 82aaaa407d4e148809337c4b94fbb06b, type: 2}
+  - {fileID: 2100000, guid: 10c74d0b484de45a8ad733f060db9721, type: 2}
+  - {fileID: 2100000, guid: 1ff9d89c409ad41cf938bb6611964e2f, type: 2}
+  - {fileID: 2100000, guid: bc5e4c6a387d8450592777e8f6a84520, type: 2}
 --- !u!65 &5131578187370466927
 BoxCollider:
   m_ObjectHideFlags: 0

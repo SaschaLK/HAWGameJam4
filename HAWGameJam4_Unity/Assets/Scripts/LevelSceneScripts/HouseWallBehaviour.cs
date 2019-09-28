@@ -9,9 +9,18 @@ public class HouseWallBehaviour : MonoBehaviour {
     public int id;
     public int idLeader;
 
+    [SerializeField] Material[] wallMaterials;
+
     private void Start() {
         scrollingSpeed = ScrollingManagerBehaviour.instance.wallSpeed;
         ceiling = ScrollingManagerBehaviour.instance.ceiling;
+        
+        GetComponent<MeshRenderer>().material = wallMaterials[Random.Range(0, wallMaterials.Length)];
+        
+        if (id % 2 == 0)
+        {
+            GetComponent<MeshRenderer>().material.SetTextureScale("_MainTex", new Vector2(-1,1));
+        }
     }
 
     private void Update() {

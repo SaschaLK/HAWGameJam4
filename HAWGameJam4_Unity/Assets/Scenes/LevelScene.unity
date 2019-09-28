@@ -205,7 +205,7 @@ GameObject:
   - component: {fileID: 467536960}
   - component: {fileID: 467536959}
   m_Layer: 0
-  m_Name: UpperCeiling (1)
+  m_Name: BottomCeiling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -348,7 +348,7 @@ PrefabInstance:
     - target: {fileID: 6507085277848690350, guid: df56cdb9ec08b4a11a3add2631f3f34d,
         type: 3}
       propertyPath: minimumOrthographicSize
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df56cdb9ec08b4a11a3add2631f3f34d, type: 3}
