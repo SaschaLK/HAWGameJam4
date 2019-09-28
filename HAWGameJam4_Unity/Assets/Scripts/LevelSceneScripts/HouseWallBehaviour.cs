@@ -23,7 +23,8 @@ public class HouseWallBehaviour : MonoBehaviour
         
         if (id % 2 == 0)
         {
-            GetComponent<MeshRenderer>().material.SetTextureScale("_MainTex", new Vector2(-1,1));
+            //GetComponent<MeshRenderer>().material.SetTextureScale("_MainTex", new Vector2(-1,1));
+            gameObject.transform.localScale = new Vector3(gameObject.transform.localScale.x * -1,gameObject.transform.localScale.y,gameObject.transform.localScale.z);
         }
     }
 
