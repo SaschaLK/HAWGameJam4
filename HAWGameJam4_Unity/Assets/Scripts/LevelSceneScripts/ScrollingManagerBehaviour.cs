@@ -6,65 +6,75 @@ public class ScrollingManagerBehaviour : MonoBehaviour
 {
     public static ScrollingManagerBehaviour instance;
     
-    public float wallSpeed;
-    public float ceiling;
-    
-    [SerializeField] float floor;
-    [SerializeField] int wallCount;
+    [Header("General")]
     [SerializeField] float scaleVector;
-    [SerializeField] List<GameObject> houseWallsPrefabs;
     
-    private List<GameObject> houseWalls;
+    [Header("OuterWalls")]
     
-    private void Awake() {
+    public float outerWallSpeed;
+    public float ceiling;
+    [SerializeField] int outerWallCount;
+    [SerializeField] List<GameObject> outerWallPrefabs;
+    
+    private List<GameObject> outerWalls;
+    
+    private void Awake() 
+    {
         instance = this;
     }
 
-    private void Start() {
-        houseWalls = new List<GameObject>();
-
-        int idCount = 0;
-        
-        for(int i = 0; i < wallCount; i++) 
-        {
-            houseWalls.Add(Instantiate(houseWallsPrefabs[Random.Range(0, houseWallsPrefabs.Count - 1)],
-                new Vector3(-1*scaleVector, i * scaleVector, 0), Quaternion.identity));
-            houseWalls[idCount].GetComponent<HouseWallBehaviour>().id = idCount;
-            
-            if (wallCount * 2 == idCount + 2) 
-            {
-                houseWalls[idCount].GetComponent<HouseWallBehaviour>().idLeader = 0;
-            }
-            else 
-            {
-                houseWalls[idCount].GetComponent<HouseWallBehaviour>().idLeader = idCount + 2;
-            }
-            
-            idCount++;
-            
-            houseWalls.Add(Instantiate(houseWallsPrefabs[Random.Range(0, houseWallsPrefabs.Count - 1)],
-                new Vector3(1*scaleVector, i * scaleVector, 0), Quaternion.identity));
-            houseWalls[idCount].GetComponent<HouseWallBehaviour>().id = idCount;
-            
-            if(wallCount*2 == idCount + 1) 
-            {
-                houseWalls[idCount].GetComponent<HouseWallBehaviour>().idLeader = 1;
-            }
-            else 
-            {
-                houseWalls[idCount].GetComponent<HouseWallBehaviour>().idLeader = idCount + 2;
-            }
-            idCount++;
-        }
+    private void Start() 
+    {
+        InstantiateOuterWalls();
     }
 
-    public void ToggleWalls() {
-        foreach(GameObject wall in houseWalls) {
+    public void ToggleWalls() 
+    {
+        foreach(GameObject wall in outerWalls) {
             wall.SetActive(!wall.activeSelf);
         }
     }
 
     public void ResetWallTile(int id, int idLeader) {
-        houseWalls[id].transform.position = new Vector3(houseWalls[id].transform.position.x, houseWalls[idLeader].transform.position.y - scaleVector, houseWalls[id].transform.position.z);
+        outerWalls[id].transform.position = new Vector3(outerWalls[id].transform.position.x, outerWalls[idLeader].transform.position.y - scaleVector, outerWalls[id].transform.position.z);
+    }
+
+    private void InstantiateOuterWalls()
+    {
+        outerWalls = new List<GameObject>();
+
+        int idCount = 0;
+        
+        for(int i = 0; i < outerWallCount; i++) 
+        {
+            outerWalls.Add(Instantiate(outerWallPrefabs[Random.Range(0, outerWallPrefabs.Count - 1)],
+                new Vector3(-1*scaleVector, i * scaleVector, 0), Quaternion.identity));
+            outerWalls[idCount].GetComponent<HouseWallBehaviour>().id = idCount;
+            
+            if (outerWallCount * 2 == idCount + 2) 
+            {
+                outerWalls[idCount].GetComponent<HouseWallBehaviour>().idLeader = 0;
+            }
+            else 
+            {
+                outerWalls[idCount].GetComponent<HouseWallBehaviour>().idLeader = idCount + 2;
+            }
+            
+            idCount++;
+            
+            outerWalls.Add(Instantiate(outerWallPrefabs[Random.Range(0, outerWallPrefabs.Count - 1)],
+                new Vector3(1*scaleVector, i * scaleVector, 0), Quaternion.identity));
+            outerWalls[idCount].GetComponent<HouseWallBehaviour>().id = idCount;
+            
+            if(outerWallCount*2 == idCount + 1) 
+            {
+                outerWalls[idCount].GetComponent<HouseWallBehaviour>().idLeader = 1;
+            }
+            else 
+            {
+                outerWalls[idCount].GetComponent<HouseWallBehaviour>().idLeader = idCount + 2;
+            }
+            idCount++;
+        }
     }
 }

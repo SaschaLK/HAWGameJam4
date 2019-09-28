@@ -12,7 +12,7 @@ public class HouseWallBehaviour : MonoBehaviour {
     [SerializeField] Material[] wallMaterials;
 
     private void Start() {
-        scrollingSpeed = ScrollingManagerBehaviour.instance.wallSpeed;
+        scrollingSpeed = ScrollingManagerBehaviour.instance.outerWallSpeed;
         ceiling = ScrollingManagerBehaviour.instance.ceiling;
         
         GetComponent<MeshRenderer>().material = wallMaterials[Random.Range(0, wallMaterials.Length)];
