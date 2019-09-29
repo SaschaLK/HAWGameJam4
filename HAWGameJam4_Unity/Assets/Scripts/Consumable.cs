@@ -6,9 +6,9 @@ public class Consumable : MonoBehaviour
 {
     [SerializeField] private int value;
     
-    void OnCollisionEnter(Collision other)
+    void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Player") {
+        if(other.gameObject.CompareTag("Player")) {
             int id = other.gameObject.GetComponent<SimpleController_UsingPlayerInput>().id;
             GameManager.instance.UpdatePlayerScore(id, value);
             
