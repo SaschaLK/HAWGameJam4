@@ -28,13 +28,14 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private GameObject countdownPanel;
     [SerializeField] private TextMeshProUGUI countdownText;
+    [SerializeField] private MusicManager musicManager;
 
     private int _playerOneScore;
     private int _playerTwoScore;
     private int _playerThreeScore;
     private int _playerFourScore;
 
-    private int _playerCount = 2;
+    private int _playerCount = 4;
 
     public static GameManager instance;
 
@@ -55,6 +56,8 @@ public class GameManager : MonoBehaviour
         countdownText.text = intDown.ToString();
 
         countDown -= Time.deltaTime;
+        
+        TestMusicChange();
     }
 
     public void UpdatePlayerScore(int player, int change) 
@@ -64,18 +67,30 @@ public class GameManager : MonoBehaviour
             case 0:
                 _playerOneScore += change;
                 playerOneText.text = _playerOneScore.ToString();
+                if(_playerOneScore > _playerTwoScore && _playerOneScore > _playerThreeScore && _playerOneScore > _playerFourScore) {
+                    musicManager.TransitionToAnime();
+                }
                 break;
             case 1:
                 _playerTwoScore += change;
                 playerTwoText.text = _playerTwoScore.ToString();
+                if (_playerTwoScore > _playerOneScore && _playerTwoScore > _playerThreeScore && _playerTwoScore > _playerFourScore) {
+                    musicManager.TransitionToShittyFlute();
+                }
                 break;
             case 2:
                 _playerThreeScore += change;
                 playerThreeText.text = _playerThreeScore.ToString();
+                if (_playerThreeScore > _playerOneScore && _playerThreeScore > _playerTwoScore && _playerThreeScore > _playerFourScore) {
+                    musicManager.TransitionToChiptune();
+                }
                 break;
             case 3:
                 _playerFourScore += change;
                 playerFourText.text = _playerFourScore.ToString();
+                if (_playerFourScore > _playerOneScore && _playerFourScore > _playerTwoScore && _playerFourScore > _playerThreeScore) {
+                    musicManager.TransitionToSoundFont();
+                }
                 break;
         }
     }
@@ -158,5 +173,23 @@ public class GameManager : MonoBehaviour
         }
 
         GameObject.FindGameObjectWithTag("Goal").GetComponent<Goal>().StopMovement();
+    }
+
+
+    //only for testing
+    private void TestMusicChange() {
+        if (Input.GetKey("up")) {
+            _playerOneScore+=1;
+            Debug.Log(_playerOneScore);
+        }
+        if (Input.GetKey("left")) {
+            _playerTwoScore += 1;
+        }
+        if (Input.GetKey("right")) {
+            _playerThreeScore += 1;
+        }
+        if (Input.GetKey("down")) {
+            _playerFourScore += 1;
+        }
     }
 }
