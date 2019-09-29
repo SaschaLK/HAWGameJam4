@@ -127,10 +127,11 @@ public class GameManager : MonoBehaviour
         allPlayerScores.Add("Player 4", _playerFourScore);
 
         var orderByVal = allPlayerScores.OrderBy(v => v.Value);
+        var orderByValReverse = orderByVal.Reverse();
 
         bool once = false;
         
-        foreach (var pair in orderByVal)
+        foreach (var pair in orderByValReverse)
         {
             if (!once)
             {
