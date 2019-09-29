@@ -26,21 +26,4 @@ public class MusicManager : MonoBehaviour
     public void TransitionToSoundFont() {
         soundfontMusic.TransitionTo(transitionTime);
     }
-    
-    //only for testing
-    void Update() {
-        if (Input.GetKey("up")) {
-            TransitionToAnime();
-        }
-        if (Input.GetKey("left")) {
-            TransitionToChiptune();
-        }
-        if (Input.GetKey("right")) {
-            TransitionToShittyFlute();
-        }
-        if (Input.GetKey("down")) {
-            TransitionToSoundFont();
-        }
-    }
-
 }
