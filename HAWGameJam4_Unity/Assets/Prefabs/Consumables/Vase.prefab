@@ -91,6 +91,7 @@ GameObject:
   - component: {fileID: 8862729761122138783}
   - component: {fileID: 8952113370194033807}
   - component: {fileID: -8723876160653322675}
+  - component: {fileID: -2555227284519042043}
   m_Layer: 0
   m_Name: Vase
   m_TagString: Untagged
@@ -140,3 +141,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _moveSpeed: 0.05
   _up: 1
+--- !u!114 &-2555227284519042043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8977379597897563871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5566c5c6837a64a428db0f9ffc828b33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  value: -50
