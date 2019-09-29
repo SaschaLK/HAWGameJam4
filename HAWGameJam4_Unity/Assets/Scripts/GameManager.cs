@@ -128,7 +128,7 @@ public class GameManager : MonoBehaviour
 
         var orderByVal = allPlayerScores.OrderBy(v => v.Value);
 
-        bool once;
+        bool once = false;
         
         foreach (var pair in orderByVal)
         {
