@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -11,6 +12,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI playerThreeText;
     [SerializeField] private TextMeshProUGUI playerFourText;
 
+    [SerializeField] private GameObject winningPanel;
+    [SerializeField] private TextMeshProUGUI winnerText;
+    [SerializeField] private TextMeshProUGUI pointsText;
+    
     private int _playerOneScore;
     private int _playerTwoScore;
     private int _playerThreeScore;
@@ -44,5 +49,23 @@ public class GameManager : MonoBehaviour
                 playerFourText.text = _playerFourScore.ToString();
                 break;
         }
+    }
+
+    public void EndGame()
+    {
+        winningPanel.SetActive(true);
+
+        SortedList<string, int> allPlayerScores = new SortedList<string, int>();
+
+        allPlayerScores.Add("Player 1", _playerOneScore);
+        allPlayerScores.Add("Player 2", _playerTwoScore);
+        allPlayerScores.Add("Player 3", _playerThreeScore);
+        allPlayerScores.Add("Player 4", _playerFourScore);
+
+        int value = allPlayerScores.Values[0];
+        string key = allPlayerScores.Keys[0];
+
+        winnerText.text = key;
+        pointsText.text = value.ToString();
     }
 }

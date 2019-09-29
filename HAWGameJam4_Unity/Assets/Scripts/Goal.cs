@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using DefaultNamespace;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class Goal : MonoBehaviour
@@ -12,10 +13,10 @@ public class Goal : MonoBehaviour
     
     private void OnCollisionEnter(Collision other)
     {
-        Debug.Log("OnCollisionEnter");
         StopScroller();
-        
-        Debug.Log(timer);
+
+        var gameManager = GameObject.FindGameObjectWithTag("GameManager");
+        gameManager.GetComponent<GameManager>().EndGame();
     }
 
     void Update()
