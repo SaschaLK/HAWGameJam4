@@ -12,6 +12,9 @@ public class ObjectSpawner : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.instance.currentGameState != GameManager.GameStates.RUNNING)
+            return;
+        
         _counter += Time.deltaTime;
 
         if (_counter >= 5 && _counter <= 30)
