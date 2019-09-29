@@ -118,6 +118,8 @@ public class GameManager : MonoBehaviour
 
         winnerText.text = key;
         pointsText.text = value.ToString();
+
+        currentGameState = GameStates.END;
         
         StopScroller();
     }
