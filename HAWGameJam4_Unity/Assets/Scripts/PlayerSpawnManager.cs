@@ -15,6 +15,7 @@ public class PlayerSpawnManager : MonoBehaviour {
 
     public Vector2 SpawnPlayer() {
         playerCount++;
+        CameraScope.instance.targets[playerCount] = gameObject.transform;
         GameManager.instance.PlayerConnected();
         return playerSpawnPositions[playerCount];
     }

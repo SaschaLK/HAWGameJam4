@@ -2,7 +2,9 @@
 
 public class CameraScope : MonoBehaviour {
 
-    [SerializeField] Transform[] targets;
+    public static CameraScope instance;
+
+    public Transform[] targets;
     [SerializeField] float boundingBoxPadding = 2f;
     [SerializeField] float minimumOrthographicSize = 8f;
     [SerializeField] float zoomSpeed = 20f;
@@ -19,6 +21,7 @@ public class CameraScope : MonoBehaviour {
 
     void Awake() 
     {
+        instance = this;
         _camera = GetComponent<Camera>();
         _camera.orthographic = true;
     }

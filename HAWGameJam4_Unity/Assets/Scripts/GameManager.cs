@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
     private int _playerThreeScore;
     private int _playerFourScore;
 
-    private int _playerCount = 0;
+    private int _playerCount = 2;
 
     public static GameManager instance;
 
