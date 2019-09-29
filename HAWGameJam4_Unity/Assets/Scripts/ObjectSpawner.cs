@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
 using UnityEngine;
 
 public class ObjectSpawner : MonoBehaviour
@@ -19,8 +20,10 @@ public class ObjectSpawner : MonoBehaviour
 
             if (_instantiationCounter >= 5)
             {
-                Instantiate(objectsToSpawn[Random.Range(0, objectsToSpawn.Length)], new Vector3(Random.Range(-6, 6), transform.position.y, 0),
+                GameObject cons = Instantiate(objectsToSpawn[Random.Range(0, objectsToSpawn.Length)], new Vector3(Random.Range(-6, 6), transform.position.y, 0),
                     Quaternion.identity);
+
+                cons.GetComponent<Mover>().StartMovement();
                 
                 _instantiationCounter = 0;
             }
