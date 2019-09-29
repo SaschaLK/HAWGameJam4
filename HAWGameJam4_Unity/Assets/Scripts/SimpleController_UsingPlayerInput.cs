@@ -19,6 +19,10 @@ public class SimpleController_UsingPlayerInput : MonoBehaviour {
         if (!usingForce) {
             rb.useGravity = false;
         }
+
+        //Pseudo OnInstantiate()
+        Vector2 position = PlayerSpawnManager.instance.SpawnPlayer();
+        gameObject.transform.position = new Vector3(position.x, position.y, 0);
     }
 
     #region Movement
@@ -59,7 +63,6 @@ public class SimpleController_UsingPlayerInput : MonoBehaviour {
         }
         rb.transform.Rotate(rotation * rotationSpeed, Space.World);
     }
-
 
     #region Legacy
     //public void OnLook(InputAction.CallbackContext context)
