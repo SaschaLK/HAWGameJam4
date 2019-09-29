@@ -9,6 +9,8 @@ public class SimpleController_UsingPlayerInput : MonoBehaviour {
     public bool usingForce = true;
     private Vector2 m_Move;
     private Rigidbody rb;
+    private Vector3 cheat = new Vector3(0.1f, 0, 0);
+    private Vector3 currentRotation;
 
     //Rotation vars
     public float rotationSpeed;
@@ -61,7 +63,18 @@ public class SimpleController_UsingPlayerInput : MonoBehaviour {
         if (!usingForce) {
             Move(m_Move);
         }
-        rb.transform.Rotate(rotation * rotationSpeed, Space.World);
+        //rb.transform.Rotate(rotation * rotationSpeed, Space.World);
+        //currentRotation = new Vector3(transform.rotation.x, transform.rotation.y);
+        //Debug.Log(currentRotation);
+        //rb.transform.Rotate((rotation + currentRotation) * rotationSpeed, Space.World);
+
+        //Instant Rotation
+        if (rotation.y == 1 || rotation.y == -1) {
+            rb.transform.LookAt(rotation + cheat + transform.position);
+        }
+        else {
+            rb.transform.LookAt(rotation + transform.position);
+        }
     }
 
     #region Legacy
