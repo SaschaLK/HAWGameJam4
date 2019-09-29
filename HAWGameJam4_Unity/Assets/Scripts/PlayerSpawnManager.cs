@@ -6,7 +6,7 @@ public class PlayerSpawnManager : MonoBehaviour {
     public static PlayerSpawnManager instance;
     public List<Vector2> playerSpawnPositions;
 
-    private int playerCount;
+    public int playerCount;
 
     private void Awake() {
         instance = this;
@@ -15,6 +15,7 @@ public class PlayerSpawnManager : MonoBehaviour {
 
     public Vector2 SpawnPlayer() {
         playerCount++;
+        GameManager.instance.PlayerConnected();
         return playerSpawnPositions[playerCount];
     }
 }

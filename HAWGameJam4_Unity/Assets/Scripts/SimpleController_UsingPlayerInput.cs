@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Interactions;
@@ -7,6 +8,8 @@ public class SimpleController_UsingPlayerInput : MonoBehaviour {
     //Movement vars
     public float moveSpeed;
     public bool usingForce = true;
+    public List<GameObject> players;
+
     private Vector2 m_Move;
     private Rigidbody rb;
     private Vector3 cheat = new Vector3(0.1f, 0, 0);
@@ -24,7 +27,9 @@ public class SimpleController_UsingPlayerInput : MonoBehaviour {
 
         //Pseudo OnInstantiate()
         Vector2 position = PlayerSpawnManager.instance.SpawnPlayer();
+        players[PlayerSpawnManager.instance.playerCount].SetActive(true);
         gameObject.transform.position = new Vector3(position.x, position.y, 0);
+        gameObject.transform.LookAt(Vector3.right);
     }
 
     #region Movement
