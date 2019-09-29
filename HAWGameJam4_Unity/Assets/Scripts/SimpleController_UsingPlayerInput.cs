@@ -77,6 +77,12 @@ public class SimpleController_UsingPlayerInput : MonoBehaviour {
         }
     }
 
+    #region Punch
+    public void OnFire(InputAction.CallbackContext context) {
+        Debug.Log("punch");
+    }
+    #endregion
+
     #region Legacy
     //public void OnLook(InputAction.CallbackContext context)
     //{
