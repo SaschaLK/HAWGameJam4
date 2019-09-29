@@ -119,6 +119,8 @@ public class GameManager : MonoBehaviour
     {
         winningPanel.SetActive(true);
         
+        musicManager.PlayEndSound();
+        
         SortedList<string, int> allPlayerScores = new SortedList<string, int>();
 
         allPlayerScores.Add("Player 1", _playerOneScore);

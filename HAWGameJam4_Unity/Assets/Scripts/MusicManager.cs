@@ -11,6 +11,8 @@ public class MusicManager : MonoBehaviour
     public AudioMixerSnapshot soundfontMusic;
     float transitionTime = 0.4f;
 
+    public AudioSource endSoundSource;
+
     public void TransitionToAnime() {
         animeMusic.TransitionTo(transitionTime);
     }
@@ -26,4 +28,9 @@ public class MusicManager : MonoBehaviour
     public void TransitionToSoundFont() {
         soundfontMusic.TransitionTo(transitionTime);
     }
+    
+    public void PlayEndSound(){
+        endSoundSource.Play();
+    }
+    
 }
