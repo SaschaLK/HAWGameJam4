@@ -8,7 +8,7 @@ namespace DefaultNamespace
         [SerializeField] float _moveSpeed;
         [SerializeField] bool _up;
 
-        private bool _stopped;
+        private bool _stopped = true;
 
         private void Update()
         {
@@ -28,6 +28,11 @@ namespace DefaultNamespace
         public void StopMovement()
         {
             _stopped = true;
+        }
+
+        public void StartMovement()
+        {
+            _stopped = false;
         }
     }
 }

@@ -7,7 +7,7 @@ public class HouseWallBehaviour : MonoBehaviour
     private float scrollingSpeed;
     private float ceiling;
     private float floor;
-    private bool stopped;
+    private bool stopped = true;
     
     public int id;
     public int idLeader;
@@ -42,6 +42,10 @@ public class HouseWallBehaviour : MonoBehaviour
     public void StopMovement()
     {
         stopped = true;
-        Debug.Log("STOPPED");
+    }
+
+    public void StartMovement()
+    {
+        stopped = false;
     }
 }
