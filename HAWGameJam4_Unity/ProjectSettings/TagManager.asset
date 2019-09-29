@@ -8,6 +8,8 @@ TagManager:
   - MovingHouseWall
   - Gradient
   - Moving
+  - Goal
+  - GameManager
   layers:
   - Default
   - TransparentFX

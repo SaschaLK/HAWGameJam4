@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
         instance = this;
     }
 
-    private float countDown = 5;
+    private float countDown = 5.5f;
     
     void Update()
     {
@@ -95,7 +95,7 @@ public class GameManager : MonoBehaviour
         countdownPanel.SetActive(true);
         currentGameState = GameStates.STARTING;
         
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(5.5f);
 
         countdownPanel.SetActive(false);
         currentGameState = GameStates.RUNNING;

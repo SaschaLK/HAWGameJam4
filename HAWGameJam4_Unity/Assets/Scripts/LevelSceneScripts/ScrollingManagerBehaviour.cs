@@ -48,7 +48,7 @@ public class ScrollingManagerBehaviour : MonoBehaviour
         for(int i = 0; i < outerWallCount; i++) 
         {
             outerWalls.Add(Instantiate(outerWallPrefabs[Random.Range(0, outerWallPrefabs.Count - 1)],
-                new Vector3(-1 * scaleVector - 4, i * scaleVector, 3f), Quaternion.identity));
+                new Vector3(-1 * scaleVector - 4, i * scaleVector - 10, 3f), Quaternion.identity));
             outerWalls[idCount].GetComponent<HouseWallBehaviour>().id = idCount;
             
             if (outerWallCount * 2 == idCount + 2) 
@@ -63,7 +63,7 @@ public class ScrollingManagerBehaviour : MonoBehaviour
             idCount++;
             
             outerWalls.Add(Instantiate(outerWallPrefabs[Random.Range(0, outerWallPrefabs.Count - 1)],
-                new Vector3(1 * scaleVector + 4, i * scaleVector, 3f), Quaternion.identity));
+                new Vector3(1 * scaleVector + 4, i * scaleVector - 10, 3f), Quaternion.identity));
             outerWalls[idCount].GetComponent<HouseWallBehaviour>().id = idCount;
             
             if(outerWallCount*2 == idCount + 1) 
