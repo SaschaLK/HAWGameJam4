@@ -59,6 +59,7 @@ MonoBehaviour:
   - {fileID: 8712971943300977969}
   - {fileID: 7400285072184747304}
   - {fileID: 7135353460003547272}
+  id: 0
   rotationSpeed: 2.5
 --- !u!114 &1870472295169540101
 MonoBehaviour:

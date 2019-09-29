@@ -9,6 +9,7 @@ public class SimpleController_UsingPlayerInput : MonoBehaviour {
     public float moveSpeed;
     public bool usingForce = true;
     public List<GameObject> players;
+    public int id;
 
     private Vector2 m_Move;
     private Rigidbody rb;
@@ -28,6 +29,7 @@ public class SimpleController_UsingPlayerInput : MonoBehaviour {
         //Pseudo OnInstantiate()
         Vector2 position = PlayerSpawnManager.instance.SpawnPlayer();
         players[PlayerSpawnManager.instance.playerCount].SetActive(true);
+        id = PlayerSpawnManager.instance.playerCount;
         gameObject.transform.position = new Vector3(position.x, position.y, 0);
         gameObject.transform.LookAt(Vector3.right);
     }

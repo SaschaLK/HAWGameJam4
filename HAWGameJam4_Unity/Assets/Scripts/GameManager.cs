@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
     private int _playerThreeScore;
     private int _playerFourScore;
 
-    private int _playerCount;
+    private int _playerCount = 2;
 
     public static GameManager instance;
 
@@ -61,19 +61,19 @@ public class GameManager : MonoBehaviour
     {
         switch (player)
         {
-            case 1:
+            case 0:
                 _playerOneScore += change;
                 playerOneText.text = _playerOneScore.ToString();
                 break;
-            case 2:
+            case 1:
                 _playerTwoScore += change;
                 playerTwoText.text = _playerTwoScore.ToString();
                 break;
-            case 3:
+            case 2:
                 _playerThreeScore += change;
                 playerThreeText.text = _playerThreeScore.ToString();
                 break;
-            case 4:
+            case 3:
                 _playerFourScore += change;
                 playerFourText.text = _playerFourScore.ToString();
                 break;
