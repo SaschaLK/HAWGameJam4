@@ -120,7 +120,7 @@ public class GameManager : MonoBehaviour
     public void EndGame()
     {
         winningPanel.SetActive(true);
-
+        /*
         SortedList<string, int> allPlayerScores = new SortedList<string, int>();
 
         allPlayerScores.Add("Player 1", _playerOneScore);
@@ -133,6 +133,20 @@ public class GameManager : MonoBehaviour
 
         winnerText.text = key;
         pointsText.text = value.ToString();
+        */
+        
+        SortedList<int, string> allPlayerScore = new SortedList<int, string>();
+        
+        allPlayerScore.Add(_playerOneScore, "Player 1");
+        allPlayerScore.Add(_playerTwoScore, "Player 2");
+        allPlayerScore.Add(_playerThreeScore, "Player 3");
+        allPlayerScore.Add(_playerFourScore, "Player 4");
+
+        int key = allPlayerScore.Keys[0];
+        string value = allPlayerScore.Values[0];
+        
+        winnerText.text = value;
+        pointsText.text = key.ToString();
 
         currentGameState = GameStates.END;
         
